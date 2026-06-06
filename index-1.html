@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Didactique Model - Comprehensive Course</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .page-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .page-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-link.active {
+            border-bottom: 2px solid #3b82f6;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        .quiz-option:checked + label {
+            background-color: #eff6ff;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-between items-center py-4">
+                <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+                    <i class="fa-solid fa-graduation-cap text-blue-600 text-3xl mr-3"></i>
+                    <span class="font-bold text-xl tracking-tight text-slate-800">Didactique<span class="text-blue-600">Edu</span></span>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6 mt-4 md:mt-0" id="desktop-nav">
+                    <a href="#home" class="nav-link active text-slate-600 hover:text-blue-600 transition pb-1" data-target="home">Home</a>
+                    <a href="#chap1" class="nav-link text-slate-600 hover:text-blue-600 transition pb-1" data-target="chap1">Chapitre 1</a>
+                    <a href="#chap2" class="nav-link text-slate-600 hover:text-blue-600 transition pb-1" data-target="chap2">Chapitre 2</a>
+                    <a href="#chap3" class="nav-link text-slate-600 hover:text-blue-600 transition pb-1" data-target="chap3">Chapitre 3</a>
+                    <a href="#chap4" class="nav-link text-slate-600 hover:text-blue-600 transition pb-1" data-target="chap4">Chapitre 4</a>
+                    <a href="#quiz" class="nav-link text-slate-600 hover:text-blue-600 transition pb-1" data-target="quiz"><i class="fa-solid fa-clipboard-check mr-1"></i> Quiz</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-slate-600 hover:text-blue-600" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <nav class="md:hidden hidden flex-col space-y-3 pb-4" id="mobile-nav">
+                <a href="#home" class="nav-link active text-slate-600 block" data-target="home" onclick="toggleMobileMenu()">Home</a>
+                <a href="#chap1" class="nav-link text-slate-600 block" data-target="chap1" onclick="toggleMobileMenu()">Chapitre 1 : Distinction Pédagogie/Didactique</a>
+                <a href="#chap2" class="nav-link text-slate-600 block" data-target="chap2" onclick="toggleMobileMenu()">Chapitre 2 : Le Triangle Didactique</a>
+                <a href="#chap3" class="nav-link text-slate-600 block" data-target="chap3" onclick="toggleMobileMenu()">Chapitre 3 : Concepts Fondamentaux</a>
+                <a href="#chap4" class="nav-link text-slate-600 block" data-target="chap4" onclick="toggleMobileMenu()">Chapitre 4 : Les TICE</a>
+                <a href="#quiz" class="nav-link text-slate-600 block" data-target="quiz" onclick="toggleMobileMenu()">Final Quiz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ================= HOME PAGE ================= -->
+        <section id="home" class="page-section active">
+            <div class="bg-blue-600 rounded-2xl p-8 md:p-12 text-white shadow-lg mb-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">The Theory of Didactics</h1>
+                <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+                    Explore the fundamental concepts of teaching and learning. Understand how knowledge is transformed, transmitted, and assimilated in an educational setting.
+                </p>
+                <a href="#chap1" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:bg-blue-50 transition shadow-md">
+                    Start Course
+                </a>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 inline-block">Course Modules</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Chapitre 1 : Distinction entre Pédagogie et Didactique</h3>
+                    <p class="text-slate-600 mb-4 line-clamp-2">Comprendre la différence entre les méthodes générales et l'approche centrée sur le savoir.</p>
+                    <a href="#chap1" class="text-blue-600 font-semibold hover:underline">Read Chapter &rarr;</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-draw-polygon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Chapitre 2 : Le Triangle Didactique</h3>
+                    <p class="text-slate-600 mb-4 line-clamp-2">Analyser la relation dynamique entre l'Enseignant, l'Apprenant et le Savoir.</p>
+                    <a href="#chap2" class="text-blue-600 font-semibold hover:underline">Read Chapter &rarr;</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Chapitre 3 : Concepts Fondamentaux de la Didactique</h3>
+                    <p class="text-slate-600 mb-4 line-clamp-2">Transposition didactique, contrat didactique et autres principes clés.</p>
+                    <a href="#chap3" class="text-blue-600 font-semibold hover:underline">Read Chapter &rarr;</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Chapitre 4 : Les TICE et l’Enseignement/Apprentissage</h3>
+                    <p class="text-slate-600 mb-4 line-clamp-2">Découvrez comment les technologies de l'information transforment la classe.</p>
+                    <a href="#chap4" class="text-blue-600 font-semibold hover:underline">Read Chapter &rarr;</a>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <a href="#quiz" class="inline-flex items-center justify-center space-x-2 bg-slate-800 text-white px-6 py-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fa-solid fa-spell-check"></i>
+                    <span>Jump to Final Quiz</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================= CHAPTER 1 ================= -->
+        <section id="chap1" class="page-section">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">Chapitre 1</span>
+                <h1 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">Distinction entre Pédagogie et Didactique</h1>
+                
+                <div class="prose max-w-none text-slate-600 space-y-6 text-lg leading-relaxed">
+                    <!-- 1. Qu'est-ce que la Pédagogie -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">1. Qu'est-ce que la Pédagogie ?</h3>
+                        <p><strong>Définition :</strong> C'est l'art, la science et le métier d'enseigner. Elle regroupe les méthodes d'enseignement pour aider les élèves à apprendre.</p>
+                        <p><strong>L'origine du mot :</strong> Il vient du grec "paidós" (enfant) et "gogia" (conduire). Dans le passé, le pédagogue était un esclave qui emmenait les enfants à l'école et les aidait à faire leurs devoirs.</p>
+                        <p><strong>Ce qu'elle étudie :</strong> Elle étudie comment enseigner, les objectifs de l'éducation, et s'appuie sur la psychologie (comment on apprend) et la philosophie.</p>
+                    </div>
+
+                    <!-- 2. Les buts et avantages -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">2. Les buts et avantages de la Pédagogie</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Développer les compétences des élèves pour qu'ils utilisent ce qu'ils apprennent dans leur vie de tous les jours.</li>
+                            <li>Améliorer la qualité de l'enseignement dans la classe.</li>
+                            <li>Encourager les élèves à travailler ensemble (apprentissage coopératif).</li>
+                            <li>Éviter l'apprentissage ennuyeux et pousser les élèves à réfléchir de manière créative.</li>
+                            <li>Permettre à chaque élève d'apprendre à son propre rythme.</li>
+                            <li>Améliorer la communication entre le professeur et l'élève.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Les Méthodes Pédagogiques -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">3. Les Méthodes Pédagogiques (Comment enseigner ?)</h3>
+                        <ul class="space-y-3">
+                            <li><strong>Méthode expositive :</strong> Le professeur parle et les élèves écoutent. Idéal pour les nouveaux sujets.</li>
+                            <li><strong>Méthode démonstrative :</strong> Le professeur montre "comment faire" étape par étape avec des supports visuels.</li>
+                            <li><strong>Méthode interrogative :</strong> Basée sur les questions, le raisonnement et la logique.</li>
+                            <li><strong>Méthode active :</strong> L'élève est très actif (discussion, problèmes, jeux de rôle).</li>
+                            <li><strong>Méthode expérientielle :</strong> Apprendre en faisant des expériences (David Kolb).</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. Les Outils Pédagogiques -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">4. Les Outils Pédagogiques</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Mind-Mapping :</strong> Organiser les idées autour d'un sujet central.</li>
+                            <li><strong>Le Lapbook :</strong> Un dossier créatif et amusant pour apprendre.</li>
+                            <li><strong>Les jeux (ex: Kahoot) :</strong> Motiver les élèves et rendre la classe plus participative.</li>
+                            <li><strong>Méthode Montessori :</strong> Basée sur le respect de l'enfant et l'autonomie.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 5. Qu'est-ce que la Didactique -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">5. Qu'est-ce que la Didactique ?</h3>
+                        <p><strong>Définition :</strong> Une spécialité de la pédagogie qui s'occupe de la manière d'enseigner un contenu ou une matière précise.</p>
+                        <p><strong>L'origine :</strong> Du grec "didaskein" (enseigner/instruire).</p>
+                        <p><strong>Son rôle :</strong> Sélectionner, analyser et organiser les savoirs pour les rendre compréhensibles.</p>
+                        <p><strong>Le didacticien :</strong> L'expert d'une matière qui transforme des concepts complexes en leçons accessibles.</p>
+                    </div>
+
+                    <!-- 6. Résumé -->
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-2">6. Différence entre Pédagogie et Didactique</h3>
+                        <p class="mb-2"><strong>La Pédagogie :</strong> Centrée sur l'élève et la relation humaine.</p>
+                        <p class="mb-4"><strong>La Didactique :</strong> Centrée sur l'enseignant et le savoir (contenu).</p>
+                        <p class="text-sm italic text-blue-800">"Un enseignant a besoin des deux ! La didactique pour le programme, la pédagogie pour gérer la classe."</p>
+                    </div>
+                </div>
+                
+                <div class="mt-10 flex justify-between items-center border-t border-slate-100 pt-6">
+                    <a href="#home" class="text-slate-500 hover:text-blue-600 font-medium"><i class="fa-solid fa-arrow-left mr-2"></i>Back to Home</a>
+                    <a href="#chap2" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-medium">Next Chapter <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CHAPTER 2 ================= -->
+        <section id="chap2" class="page-section">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12">
+                <span class="text-green-600 font-bold tracking-wider uppercase text-sm mb-2 block">Chapitre 2</span>
+                <h1 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">Le Triangle Didactique</h1>
+                
+                <div class="prose max-w-none text-slate-600 space-y-6 text-lg leading-relaxed">
+                    <h3 class="text-2xl font-bold text-slate-800">Le Triangle Didactique (ou Pédagogique)</h3>
+                    <p><strong>Définition :</strong> C'est un modèle qui représente la relation dynamique entre les trois pôles essentiels impliqués dans toute situation d'apprentissage : l'enseignant, l'élève (ou l'apprenant) et le savoir.</p>
+                    <p><strong>Importance :</strong> Chacun des sommets de ce triangle occupe une place indispensable dans la transmission et l'acquisition des connaissances.</p>
+
+                    <h3 class="text-2xl font-bold text-slate-800 mt-8 mb-4">Les 3 Interactions du Triangle</h3>
+                    <p>Ce modèle met en évidence trois relations fondamentales :</p>
+                    <ul class="list-decimal pl-6 space-y-3">
+                        <li><strong>La Relation Enseignant-Savoir (La dimension didactique) :</strong> 
+                            <ul class="list-disc pl-5 mt-2">
+                                <li>Elle concerne la manière dont l'enseignant structure et présente le savoir.</li>
+                                <li>L'enseignant doit entretenir une maîtrise suffisante du savoir visé afin d'intervenir et d'en faciliter l'acquisition.</li>
+                            </ul>
+                        </li>
+                        <li><strong>La Relation Enseignant-Élève (L'espace pédagogique) :</strong>
+                            <ul class="list-disc pl-5 mt-2">
+                                <li>Elle représente la médiation de l'enseignant dans l'apprentissage de l'élève.</li>
+                                <li>L'enseignant mobilise des approches et des méthodes d'enseignement adaptées au niveau de compréhension de l'apprenant.</li>
+                                <li>Il construit une relation humaine visant à créer un environnement propice à l'apprentissage.</li>
+                            </ul>
+                        </li>
+                        <li><strong>La Relation Élève-Savoir (Le processus d'apprentissage) :</strong>
+                            <ul class="list-disc pl-5 mt-2">
+                                <li>C'est le processus actif par lequel l'élève s'approprie le savoir.</li>
+                                <li>L'apprenant s'implique en posant des questions et en échangeant avec son professeur pour s'approcher peu à peu de la connaissance.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-slate-800 mt-8 mb-4">Le Rôle Central de l'Enseignant</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Le formateur agit comme une <strong>passerelle</strong> et un <strong>médiateur</strong> posé entre l'apprenant et le savoir.</li>
+                        <li>Il n'est pas simplement là pour "dispenser" une leçon, mais pour permettre à l'élève de l'acquérir, d'en comprendre le sens, de la mémoriser et d'être capable de la réutiliser.</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-10 flex justify-between items-center border-t border-slate-100 pt-6">
+                    <a href="#chap1" class="text-slate-500 hover:text-green-600 font-medium"><i class="fa-solid fa-arrow-left mr-2"></i>Prev Chapter</a>
+                    <a href="#chap2" class="text-slate-400 text-sm hidden md:block">Chapter 2 of 4</a>
+                    <a href="#chap3" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition font-medium">Next Chapter <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CHAPTER 3 ================= -->
+        <section id="chap3" class="page-section">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12">
+                <span class="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">Chapitre 3</span>
+                <h1 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">Concepts Fondamentaux de la Didactique</h1>
+                
+                <div class="prose max-w-none text-slate-600 space-y-6 text-lg leading-relaxed">
+                    
+                    <!-- 1. Contrat Didactique -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">1. Le Contrat Didactique (Théorie de Guy Brousseau)</h3>
+                        <p><strong>Définition :</strong> C'est l'ensemble des règles (les comportements attendus) qui lient l'enseignant et l'élève.</p>
+                        <p><strong>Caractéristiques :</strong> Ce contrat est en grande partie <strong>implicite</strong> (non dit, non écrit). Chacun sait inconsciemment ce qu'il doit faire. Il évolue tout au long de l'année.</p>
+                        <p><strong>Le danger :</strong> Si le contrat est mal compris, l'élève ne sait pas ce qu'on attend de lui, ce qui peut causer l'échec scolaire.</p>
+                        <p><strong>L'exemple de l'Âge du Capitaine (Stella Baruk) :</strong> On donne aux élèves ce problème absurde : <em>"Sur un bateau, il y a 26 moutons et 140 chèvres. Quel est l'âge du capitaine ?"</em>. Les élèves répondent en additionnant les chiffres parce que le "contrat didactique" implicite en maths leur dicte qu'il faut utiliser tous les nombres de l'énoncé pour trouver une réponse, devenant ainsi des "automaths" sans esprit critique.</p>
+                    </div>
+
+                    <!-- 2. Représentations -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">2. Les Représentations et Conceptions</h3>
+                        <p><strong>Définition :</strong> Ce sont les connaissances préalables, les idées reçues ou les intuitions (parfois fausses) que l'élève a dans sa tête <em>avant</em> le cours.</p>
+                        <p><strong>Exemples de conceptions erronées :</strong></p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><em>En maths :</em> Penser que "soustraire c'est toujours enlever".</li>
+                            <li><em>En grammaire :</em> Penser que le sujet est obligatoirement "celui qui fait l'action" (ce qui pose problème à la voix passive).</li>
+                        </ul>
+                        <p><strong>Le rôle du prof :</strong> L'enseignant doit identifier ces fausses idées pour pouvoir les corriger et éviter un apprentissage superficiel.</p>
+                    </div>
+
+                    <!-- 3. Objectif-Obstacle -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">3. L'Objectif-Obstacle (Jean-Louis Martinand)</h3>
+                        <p><strong>Définition :</strong> C'est une compétence ou connaissance précise visée par le cours, mais dont l'acquisition oblige l'élève à surmonter une difficulté (un obstacle) liée à ses fausses représentations initiales.</p>
+                    </div>
+
+                    <!-- 4. Conflit -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">4. Le Conflit Sociocognitif</h3>
+                        <p><strong>Le conflit cognitif :</strong> C'est quand l'élève est confronté à une situation qui contredit ce qu'il croyait savoir.</p>
+                        <p><strong>Le conflit sociocognitif :</strong> C'est la confrontation des points de vue entre <strong>plusieurs apprenants</strong> (travail de groupe) face à un problème. En débattant, l'élève prend conscience de l'opinion des autres, corrige ses erreurs et construit la bonne solution.</p>
+                    </div>
+
+                    <!-- 5. Situation-Problème -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">5. La Situation-Problème</h3>
+                        <p><strong>Définition :</strong> C'est une activité pédagogique créée par le professeur où l'élève est poussé à construire lui-même ses connaissances en essayant de résoudre un problème concret.</p>
+                    </div>
+
+                    <!-- 6. Transposition -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">6. La Transposition Didactique</h3>
+                        <p><strong>Définition globale :</strong> C'est le travail de transformation des "Savoirs savants" (la science pure) en "Savoirs à enseigner" (leçon pour les élèves).</p>
+                        <p>Elle se déroule en deux étapes :</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>La Transposition Externe :</strong> Elle est faite par les Ministères. Ils transforment le <em>savoir savant</em> en <em>savoirs à enseigner</em> (les programmes scolaires et les manuels).</li>
+                            <li><strong>La Transposition Interne :</strong> Elle est faite par l'enseignant. Il transforme les connaissances du programme en un <em>savoir effectivement enseigné</em> dans sa classe, en l'adaptant au niveau de ses élèves.</li>
+                        </ul>
+                        <p><strong>Exemple concret :</strong> Le théorème de Pythagore (savoir savant mathématique pur) est adapté par le professeur (transposition didactique) pour devenir une leçon pratique où les élèves doivent calculer la longueur d'une échelle posée contre un mur (savoir enseigné via une situation-problème).</p>
+                    </div>
+
+                </div>
+                
+                <div class="mt-10 flex justify-between items-center border-t border-slate-100 pt-6">
+                    <a href="#chap2" class="text-slate-500 hover:text-purple-600 font-medium"><i class="fa-solid fa-arrow-left mr-2"></i>Prev Chapter</a>
+                    <a href="#chap4" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition font-medium">Next Chapter <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CHAPTER 4 ================= -->
+        <section id="chap4" class="page-section">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12">
+                <span class="text-orange-600 font-bold tracking-wider uppercase text-sm mb-2 block">Chapitre 4</span>
+                <h1 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">Les TICE et l’Enseignement/Apprentissage</h1>
+                
+                <div class="prose max-w-none text-slate-600 space-y-6 text-lg leading-relaxed">
+                    
+                    <!-- 1. Qu'est-ce que les TICE -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">1. Qu'est-ce que les TICE ?</h3>
+                        <p><strong>Définition :</strong> Les TICE (Technologies de l'Information et de la Communication pour l'Éducation) désignent l'ensemble des outils numériques utilisés pour améliorer les pratiques d'enseignement et d'apprentissage.</p>
+                        <p><strong>Exemples :</strong> Ordinateurs, tablettes, logiciels éducatifs, plateformes LMS (comme Moodle ou Google Classroom), tableaux blancs interactifs (TBI), etc.</p>
+                        <p><strong>Objectifs principaux :</strong> Moderniser l'éducation, réduire la fracture numérique, et favoriser l'autonomie des apprenants et des enseignants.</p>
+                    </div>
+
+                    <!-- 2. Le Rôle et l'Apport -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">2. Le Rôle et l'Apport des TICE</h3>
+                        <p>L'intégration du numérique change la dynamique de la classe : l'enseignant n'est plus le seul détenteur du savoir, il devient un <strong>guide</strong> ou un facilitateur.</p>
+                        <ul class="space-y-4">
+                            <li><strong>Pour l'enseignant :</strong> Les TICE servent d'outils de présentation (vidéos, diaporamas) et de gestion de classe (QCM en ligne, suivi des élèves). Elles permettent de diversifier les supports, d'interagir davantage avec les élèves et de gagner du temps dans la préparation et la correction.</li>
+                            <li><strong>Pour l'élève :</strong> Elles favorisent un apprentissage actif, collaboratif et ludique, ce qui augmente la motivation. Elles offrent un accès permanent aux ressources (tutoriels, cours) et développent l'esprit critique et l'autonomie.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Risques -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">3. Les Risques et Limites</h3>
+                        <p>Bien que très utiles, les TICE présentent certains défis :</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>La distraction et la surcharge cognitive des élèves.</li>
+                            <li>Les inégalités d'accès au numérique (tout le monde n'a pas un ordinateur ou une bonne connexion internet).</li>
+                            <li>Une dépendance excessive à ces outils.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. Exemples -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">4. Exemples d'Utilisations Didactiques</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>La classe inversée :</strong> Les élèves consultent le cours à la maison (via des vidéos ou podcasts) et utilisent le temps en classe pour faire des exercices pratiques avec l'enseignant.</li>
+                            <li><strong>Simulation et modélisation :</strong> Utilisation de logiciels comme <em>GeoGebra</em> en mathématiques pour explorer des figures dynamiques.</li>
+                            <li><strong>Outils collaboratifs :</strong> Forums, documents partagés et wikis pour travailler en groupe.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 5. Conditions -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">5. Les Conditions de Réussite</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Une formation continue pour les enseignants.</li>
+                            <li>Un accès équitable au matériel pour tous les élèves.</li>
+                            <li>Une intégration réfléchie (les TICE ne doivent pas être utilisées juste pour faire "moderne", mais doivent avoir un vrai but pédagogique).</li>
+                        </ul>
+                    </div>
+
+                    <!-- 6. Referentiels -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800">6. Les Référentiels de Compétences Numériques</h3>
+                        <p>Le document mentionne deux cadres importants pour évaluer les compétences numériques :</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Le CRCN :</strong> C'est le référentiel destiné aux <strong>élèves et citoyens</strong> (il couvre la recherche d'information, la création de contenu, la protection des données, etc.).</li>
+                            <li><strong>Le CRCN-EDU :</strong> C'est le référentiel destiné aux <strong>enseignants</strong>, qui évalue leur capacité à intégrer le numérique dans leur pédagogie, à gérer les ressources et à rendre les apprenants autonomes.</li>
+                        </ul>
+                    </div>
+
+                </div>
+                
+                <div class="mt-10 flex justify-between items-center border-t border-slate-100 pt-6">
+                    <a href="#chap3" class="text-slate-500 hover:text-orange-600 font-medium"><i class="fa-solid fa-arrow-left mr-2"></i>Prev Chapter</a>
+                    <a href="#quiz" class="bg-slate-800 text-white px-6 py-2 rounded-lg hover:bg-slate-900 transition font-medium"><i class="fa-solid fa-clipboard-check mr-2"></i>Take the Quiz</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= QUIZ PAGE ================= -->
+        <!-- ================= QUIZ PAGE ================= -->
+        <section id="quiz" class="page-section">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12 max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-4">
+                        <i class="fa-solid fa-spell-check text-3xl"></i>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Knowledge Check</h1>
+                    <p class="text-slate-600 text-lg">Test your understanding of the updated Didactique chapters.</p>
+                </div>
+
+                <form id="quiz-form" onsubmit="evaluateQuiz(event)">
+                    <!-- Question 1 -->
+                    <div class="mb-8 bg-slate-50 p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">1. What is the primary focus of "Didactique" compared to "Pédagogie"?</h3>
+                        <div class="space-y-3">
+                            <div class="relative">
+                                <input type="radio" name="q1" id="q1a" value="a" class="hidden quiz-option" required>
+                                <label for="q1a" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">General classroom management and psychology.</label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="q1" id="q1b" value="b" class="hidden quiz-option">
+                                <label for="q1b" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">The specific knowledge/content (Savoir) being taught.</label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="q1" id="q1c" value="c" class="hidden quiz-option">
+                                <label for="q1c" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">Administration and school policies.</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="mb-8 bg-slate-50 p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">2. What are the three vertices of Le Triangle Didactique?</h3>
+                        <div class="space-y-3">
+                            <div class="relative">
+                                <input type="radio" name="q2" id="q2a" value="a" class="hidden quiz-option" required>
+                                <label for="q2a" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">Enseignant, Apprenant, Savoir</label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="q2" id="q2b" value="b" class="hidden quiz-option">
+                                <label for="q2b" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">Pédagogie, Didactique, TICE</label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="q2" id="q2c" value="c" class="hidden quiz-option">
+                                <label for="q2c" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">Action, Formulation, Validation</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="mb-8 bg-slate-50 p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">3. The process of transforming scholarly knowledge into taught knowledge is called:</h3>
+                        <div class="space-y-3">
+                            <div class="relative">
+                                <input type="radio" name="q3" id="q3a" value="a" class="hidden quiz-option" required>
+                                <label for="q3a" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">Le Contrat Didactique</label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="q3" id="q3b" value="b" class="hidden quiz-option">
+                                <label for="q3b" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">La Transposition Didactique</label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="q3" id="q3c" value="c" class="hidden quiz-option">
+                                <label for="q3c" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">La Dévolution</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="mb-8 bg-slate-50 p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">4. What does the acronym TICE stand for?</h3>
+                        <div class="space-y-3">
+                            <div class="relative">
+                                <input type="radio" name="q4" id="q4a" value="a" class="hidden quiz-option" required>
+                                <label for="q4a" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">Technologies de l'Information et de la Communication pour l'Enseignement</label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="q4" id="q4b" value="b" class="hidden quiz-option">
+                                <label for="q4b" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">Théorie Internationale des Concepts d'Enseignement</label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="q4" id="q4c" value="c" class="hidden quiz-option">
+                                <label for="q4c" class="block w-full p-4 border border-slate-300 rounded-lg cursor-pointer hover:bg-slate-100 transition">Techniques Informatiques et Code à l'Ecole</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-600 text-white font-bold px-10 py-4 rounded-lg hover:bg-blue-700 transition shadow-md w-full md:w-auto text-lg">
+                            Submit Answers
+                        </button>
+                    </div>
+                </form>
+
+                <div id="quiz-results" class="hidden mt-10 p-8 rounded-xl text-center border-2">
+                    <h2 class="text-3xl font-bold mb-2" id="score-title"></h2>
+                    <p class="text-xl mb-6" id="score-text"></p>
+                    <div id="feedback-details" class="text-left space-y-4 mb-6"></div>
+                    <button onclick="resetQuiz()" class="bg-slate-800 text-white px-6 py-2 rounded-lg hover:bg-slate-700 transition">
+                        Retake Quiz
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center border-t border-slate-800 mt-auto">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="mb-2"><i class="fa-solid fa-graduation-cap mr-2 text-blue-500"></i> DidactiqueEdu &copy; 2026. Built as a Single Page Application.</p>
+            <p class="text-sm">Educational theory concepts based on Houssaye, Chevallard, and Brousseau.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Correct answers
+        const correctAnswers = {
+            q1: 'b', // The specific knowledge/content (Savoir) being taught.
+            q2: 'a', // Enseignant, Apprenant, Savoir
+            q3: 'b', // La Transposition Didactique
+            q4: 'a'  // Technologies de l'Information et de la Communication pour l'Enseignement
+        };
+
+        const explanations = {
+            q1: "Didactics focuses specifically on the knowledge (savoir) and how it is structured, whereas Pedagogy deals with general relationships.",
+            q2: "The Didactic Triangle relies on the dynamic relationship between Enseignant (Teacher), Apprenant (Student), and Savoir (Knowledge).",
+            q3: "Didactic Transposition is the concept of transforming pure scholarly knowledge into teachable material.",
+            q4: "TICE stands for Technologies de l'Information et de la Communication pour l'Enseignement, referring to ICT in education."
+        };
+
+        // Navigation Function
+        function navigate(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show targeted page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // Update Active Nav Links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active', 'border-blue-600', 'font-semibold');
+                if (link.getAttribute('data-target') === pageId) {
+                    link.classList.add('active', 'border-blue-600', 'font-semibold');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle browser back/forward buttons & URL hash changes
+        window.addEventListener('hashchange', () => {
+            let hash = window.location.hash.substring(1);
+            if (!hash) hash = 'home';
+            
+            if (document.getElementById(hash)) {
+                navigate(hash);
+            }
+        });
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.classList.toggle('hidden');
+            mobileNav.classList.toggle('flex');
+        }
+
+        // Initialize correctly on load based on URL hash
+        window.addEventListener('DOMContentLoaded', () => {
+            let hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                navigate(hash);
+            }
+        });
+
+        // Quiz Evaluation Logic
+        function evaluateQuiz(event) {
+            event.preventDefault(); // Prevent page reload
+            
+            const form = document.getElementById('quiz-form');
+            const formData = new FormData(form);
+            let score = 0;
+            let total = 4;
+            let feedbackHTML = '';
+
+            for (let i = 1; i <= total; i++) {
+                const answer = formData.get('q' + i);
+                const isCorrect = answer === correctAnswers['q' + i];
+                
+                if (isCorrect) score++;
+
+                feedbackHTML += `
+                    <div class="p-4 rounded-lg ${isCorrect ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}">
+                        <strong class="${isCorrect ? 'text-green-700' : 'text-red-700'}">
+                            <i class="fa-solid ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'} mr-2"></i>
+                            Question ${i}: ${isCorrect ? 'Correct' : 'Incorrect'}
+                        </strong>
+                        <p class="text-sm mt-1 text-slate-700">${explanations['q'+i]}</p>
+                    </div>
+                `;
+            }
+
+            // Hide form, show results
+            form.style.display = 'none';
+            const resultsDiv = document.getElementById('quiz-results');
+            const scoreTitle = document.getElementById('score-title');
+            const scoreText = document.getElementById('score-text');
+            const feedbackDetails = document.getElementById('feedback-details');
+
+            resultsDiv.classList.remove('hidden', 'border-green-500', 'border-red-500', 'border-yellow-500');
+            
+            feedbackDetails.innerHTML = feedbackHTML;
+            scoreText.innerText = `You scored ${score} out of ${total}.`;
+
+            if (score === total) {
+                resultsDiv.classList.add('border-green-500', 'bg-green-50');
+                scoreTitle.innerText = "Excellent Work! 🎉";
+                scoreTitle.className = "text-3xl font-bold mb-2 text-green-700";
+            } else if (score >= total / 2) {
+                resultsDiv.classList.add('border-yellow-500', 'bg-yellow-50');
+                scoreTitle.innerText = "Good Job! 👍";
+                scoreTitle.className = "text-3xl font-bold mb-2 text-yellow-700";
+            } else {
+                resultsDiv.classList.add('border-red-500', 'bg-red-50');
+                scoreTitle.innerText = "Keep Learning! 📚";
+                scoreTitle.className = "text-3xl font-bold mb-2 text-red-700";
+            }
+            
+            // Scroll to results
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Reset Quiz function
+        function resetQuiz() {
+            const form = document.getElementById('quiz-form');
+            form.reset();
+            form.style.display = 'block';
+            
+            const resultsDiv = document.getElementById('quiz-results');
+            resultsDiv.classList.add('hidden');
+            
+            // Uncheck visual styling
+            document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+            
+            // Scroll back to top of quiz
+            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>
